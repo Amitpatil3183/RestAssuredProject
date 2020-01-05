@@ -25,6 +25,7 @@ public class TC006_Get_Request_Authorization extends TestBase {
 	PreemptiveBasicAuthScheme authscheme = 	new PreemptiveBasicAuthScheme();
 	authscheme.setUserName("ToolsQA");
 	authscheme.setPassword("TestPassword");
+
 	
 	RestAssured.authentication = authscheme;
 	

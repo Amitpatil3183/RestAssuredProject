@@ -42,7 +42,7 @@ public class TC001_Get_All_Employees extends TestBase {
 	{
 		logger.info("***********  Checking Status Code **********");
 		
-		int statusCode = response.getStatusCode(); // Gettng status code
+		int statusCode = response.getStatusCode(); // Getting status code
 		logger.info("Status Code is ==>" + statusCode); //200
 		Assert.assertEquals(statusCode, 200);
 		

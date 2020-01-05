@@ -8,6 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.employeeapi.base.TestBase;
+import com.employeeapi.utilities.RestUtils;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
@@ -19,10 +20,13 @@ public class TC004_Put_Employee_Record extends TestBase {
 	
 	RequestSpecification httpRequest;
 	Response response;
+	String empName = RestUtils.empName();
+	String empSalary = RestUtils.empSal();
+	String empAge = RestUtils.empAge();
 	
 	
-	@BeforeClass @Parameters({"EmpName","EmpSalary","EmpAge"})
-	void updateEmployee(String EmpName,String EmpSalary,String EmpAge) throws InterruptedException
+	@BeforeClass
+	void updateEmployee() throws InterruptedException
 	{
 		logger.info("*********Started TC004_Put_Employee_Record **********");
 		
@@ -32,9 +36,9 @@ public class TC004_Put_Employee_Record extends TestBase {
 		// JSONObject is a class that represents a simple JSON. We can add Key-Value pairs using the put method
 		//{"name":"John123X","salary":"123","age":"23"}
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("name", EmpName); // Cast
-		requestParams.put("salary", EmpSalary);
-		requestParams.put("age", EmpAge);
+		requestParams.put("name", empName); // Cast
+		requestParams.put("salary", empSalary);
+		requestParams.put("age", empAge);
 		
 		// Add a header stating the Request body is a JSON
 		httpRequest.header("Content-Type", "application/json");
@@ -45,9 +49,9 @@ public class TC004_Put_Employee_Record extends TestBase {
 		response = httpRequest.request(Method.PUT, "/update/"+empID);
 		
 		String responseBody = response.getBody().asString();
-		Assert.assertEquals(responseBody.contains(EmpName), true);
-		Assert.assertEquals(responseBody.contains(EmpSalary), true);
-		Assert.assertEquals(responseBody.contains(EmpAge), true);
+		Assert.assertEquals(responseBody.contains(empName), true);
+		Assert.assertEquals(responseBody.contains(empSalary), true);
+		Assert.assertEquals(responseBody.contains(empAge), true);
 		
 		Thread.sleep(5000);
 
