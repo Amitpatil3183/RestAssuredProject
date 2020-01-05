@@ -8,9 +8,9 @@
 	
 	<test thread-count="6" name="EmployeesRestAPITest">
 	
-	<parameter name="EmpName"	value="Swara"></parameter>
+	<!-- <parameter name="EmpName"	value="Swara"></parameter>
 	<parameter name="EmpSalary"	value="89898"></parameter>
-	<parameter name="EmpAge"	value="4B"></parameter>
+	<parameter name="EmpAge"	value="4B"></parameter> -->
 			
 		<classes>
 			<class name="com.employeeapi.testCases.TC001_Get_All_Employees" />

@@ -5,29 +5,39 @@
     <listener class-name="com.employeeapi.utilities.Listeners"/>
   </listeners>
   <test thread-count="5" name="EmployeesRestAPITest(failed)">
-    <parameter name="EmpSalary" value="18A1"/>
-    <parameter name="EmpAge" value="4B9993"/>
-    <parameter name="EmpName" value="ABCjlo"/>
     <classes>
+      <class name="com.employeeapi.testCases.TC001_Get_All_Employees">
+        <methods>
+          <include name="checkserverType"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="getAllEmployees"/>
+          <include name="checkContentLenght"/>
+          <include name="checkCookies"/>
+        </methods>
+      </class> <!-- com.employeeapi.testCases.TC001_Get_All_Employees -->
+      <class name="com.employeeapi.testCases.TC002_Get_Single_Employee_Record">
+        <methods>
+          <include name="tearDown"/>
+          <include name="checkserverType"/>
+          <include name="setup"/>
+          <include name="getEmployeeData"/>
+          <include name="checkResposeBody"/>
+        </methods>
+      </class> <!-- com.employeeapi.testCases.TC002_Get_Single_Employee_Record -->
       <class name="com.employeeapi.testCases.TC003_Post_Employee_Record">
         <methods>
+          <include name="checkserverType"/>
           <include name="setup"/>
           <include name="checkcontentEncoding"/>
           <include name="tearDown"/>
           <include name="createEmployee"/>
         </methods>
       </class> <!-- com.employeeapi.testCases.TC003_Post_Employee_Record -->
-      <class name="com.employeeapi.testCases.TC002_Get_Single_Employee_Record">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setup"/>
-          <include name="getEmployeeData"/>
-          <include name="checkResposeBody"/>
-        </methods>
-      </class> <!-- com.employeeapi.testCases.TC002_Get_Single_Employee_Record -->
       <class name="com.employeeapi.testCases.TC004_Put_Employee_Record">
         <methods>
           <include name="checkcontentEncoding"/>
+          <include name="checkserverType"/>
           <include name="tearDown"/>
           <include name="setup"/>
           <include name="updateEmployee"/>
@@ -35,20 +45,13 @@
       </class> <!-- com.employeeapi.testCases.TC004_Put_Employee_Record -->
       <class name="com.employeeapi.testCases.TC005_Delete_Employee_Record">
         <methods>
+          <include name="checkserverType"/>
           <include name="deleteEmployee"/>
           <include name="setup"/>
           <include name="checkcontentEncoding"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.employeeapi.testCases.TC005_Delete_Employee_Record -->
-      <class name="com.employeeapi.testCases.TC001_Get_All_Employees">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setup"/>
-          <include name="getAllEmployees"/>
-          <include name="checkCookies"/>
-        </methods>
-      </class> <!-- com.employeeapi.testCases.TC001_Get_All_Employees -->
     </classes>
   </test> <!-- EmployeesRestAPITest(failed) -->
 </suite> <!-- Failed suite [EmployeesRestAPISuite] -->
