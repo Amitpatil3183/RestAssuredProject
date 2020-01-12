@@ -25,7 +25,8 @@ public class TC007_Post_Employees_Records extends TestBase {
 	
 	//EmpDataProvider dataprovider = new EmpDataProvider();
 
-	@Test(dataProvider = "empdataprovider")
+	@Test(dataProvider = "empdataprovider", dataProviderClass = EmpDataProvider.class)
+	
 	public void createEmployees(String ename, String eage, String esal) throws InterruptedException {
 		logger.info("*********Started TC003_Post_Employee_Record **********");
 
@@ -64,27 +65,6 @@ public class TC007_Post_Employees_Records extends TestBase {
 	}
 
 	
-	  @DataProvider(name = "empdataprovider")
-	  String[][] getEmpTestData() throws IOException {
-	  
-	  String path = System.getProperty("user.dir") +
-	  "/src/test/java/com/employeeapi/utilities/EmpTestData.xlsx";
-	  
-	  int rownum = XLUtils.getRowCount(path, "Sheet1");
-	  
-	  int colcount = XLUtils.getCellCount(path, "Sheet1", 1);
-	  
-	  String EmpTestData[][] = new String[rownum][colcount];
-	  
-	  for (int i = 1; i <= rownum; i++) { for (int j = 0; j < colcount; j++) {
-	  
-	  EmpTestData[i - 1][j] = XLUtils.getCellData(path, "Sheet1", i, j); }
-	  
-	  }
-	  
-	  return (EmpTestData); }
-	 
-	 
 
 	@AfterClass
 	void tearDown() {
