@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.employeeapi.testCases.TC007_Post_Employees_Records">
+      <class name="com.employeeapi.testCases.TC_010_Post_Single_User_Record">
         <methods>
-          <include name="setup"/>
-          <include name="createEmployees"/>
+          <include name="createuser" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- com.employeeapi.testCases.TC007_Post_Employees_Records -->
+      </class> <!-- com.employeeapi.testCases.TC_010_Post_Single_User_Record -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,4 +1,4 @@
-package com.employeeapi.testCases;
+	package com.employeeapi.testCases;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.employeeapi.base.TestBase;
 import com.employeeapi.utilities.XLUtils;
 import com.employeeapi.utilities.*;
-import com.employeeapi.utilities.EmpDataProvider;
+
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
@@ -23,15 +23,15 @@ public class TC007_Post_Employees_Records extends TestBase {
 	RequestSpecification httpRequest;
 	Response response;
 	
-	//EmpDataProvider dataprovider = new EmpDataProvider();
+	
 
-	@Test(dataProvider = "empdataprovider", dataProviderClass = EmpDataProvider.class)
+	@Test(dataProvider = "empdataprovider", dataProviderClass = com.employeeapi.dataProviders.EmpDataProvider.class)
 	
 	public void createEmployees(String ename, String eage, String esal) throws InterruptedException {
 		logger.info("*********Started TC003_Post_Employee_Record **********");
 
 		RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1";
-		httpRequest = RestAssured.given();
+		httpRequest = RestAssured.given();///to set all the variables mentioned which wehavee set in rest assurued to http request
 
 		JSONObject requestParams = new JSONObject();
 		requestParams.put("name", ename);
